@@ -21,19 +21,19 @@ public class Graduacao {
 
     private String graduacao;
 
-    @ManyToMany
-    @JoinTable(
-            name = "tb_graduacao_movimento",
-            joinColumns = @JoinColumn(name = "graduacao_id"),
-            inverseJoinColumns = @JoinColumn(name = "movimento_id")
+    @ManyToMany // Definição do tipo de relacionamento entre a tabela Movimento e Graduação
+    @JoinTable( // As anotações @JoinTable são usadas para mapear uma relação ManyToMany entre duas entidades
+            name = "tb_graduacao_movimento", // Nome da tabela intermediária que será criada para relação
+            joinColumns = @JoinColumn(name = "graduacao_id"), // O parâmetro joinColumns é usado para definir a coluna que faz referência à entidade Graduacao na tabela intermediária.
+            inverseJoinColumns = @JoinColumn(name = "movimento_id") // O parâmetro inverseJoinColumns é usado para definir a coluna que faz referência à entidade Movimento
     )
     private List<Movimento> movimentos;
 
-    @ManyToMany
-    @JoinTable(
-            name = "tb_graduacao_kata",
-            joinColumns = @JoinColumn(name = "graduacao_id"),
-            inverseJoinColumns = @JoinColumn(name = "kata_id")
+    @ManyToMany // Definição do tipo de relacionamento entre a tabela Kata e Graduação
+    @JoinTable( // As anotações @JoinTable são usadas para mapear uma relação ManyToMany entre duas entidades
+            name = "tb_graduacao_kata", // Nome da tabela intermediária que será criada para relação
+            joinColumns = @JoinColumn(name = "graduacao_id"), // O parâmetro joinColumns é usado para definir a coluna que faz referência à entidade Graduacao na tabela intermediária.
+            inverseJoinColumns = @JoinColumn(name = "kata_id") // O parâmetro inverseJoinColumns é usado para definir a coluna que faz referência à entidade Katas
     )
     private List<Kata> katas;
 }
